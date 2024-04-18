@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Reem+Kufi+Fun:wght@400..700&display=swap");
+
+@font-face {
+  font-family: "Interfaces";
+  src: url(../fonts/TTINTERFACES-LIGHT.TTF);
+}
+
+:root {
+  --base: "Interfaces";
+  --decor: "EB Garamond", serif;
+  --arabic: "Reem Kufi Fun", sans-serif;
+
+  --dark: #08252b;
+  --dark-2: #092d34;
+  --dark-3: #0b343c;
+  --regular: #0d3c45;
+  --regular-2: #0e434e;
+  --regular-3: #104a56;
+  --light: #11525f;
+  --light-2: #135967;
+  --light-3: #156170;
+  --light-4: #16697a;
+  --sky: #8ecae6;
+  --golden: #eebf57;
+  --white: rgba(255, 255, 255, 0.9);
+}
+
+::-webkit-scrollbar {
+  width: 0.44rem;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--golden);
+  border-radius: 2px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--decor);
+  font-weight: 400;
+  font-style: normal;
+  color: var(--white);
+  background: var(--dark);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a,
+button {
+  cursor: revert;
+}
+ol,
+ul,
+menu {
+  list-style: none;
+}
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+table {
+  border-collapse: collapse;
+}
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+textarea {
+  white-space: revert;
+}
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+:where(pre) {
+  all: revert;
+}
+::placeholder {
+  color: unset;
+}
+::marker {
+  content: initial;
+}
+:where([hidden]) {
+  display: none;
+}
+:where([contenteditable]:not([contenteditable="false"])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+:where(dialog:modal) {
+  all: revert;
+}
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.container.small {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+p,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: var(--white);
+}
+button {
+  cursor: pointer;
+}
+img,
+svg {
+  pointer-events: none;
+}
+input,
+button {
+  background: unset;
+  border: none;
+}
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+@media screen and (max-width: 1600px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .container,
+  .container.medium,
+  .container.small {
+    padding: 0 16px;
+  }
+}
+input:focus {
+  outline: none;
+}
+.section__title {
+  color: var(--white);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  position: relative;
+  padding-left: 28px;
+}
+.section__title::after {
+  background: var(--golden);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0px;
+  content: "";
+}
+.ant-dropdown-menu {
+  background: var(--dark-3) !important;
+}
+.ant-dropdown-menu-item > a {
+  color: white;
+  font-size: 16px;
+  font-family: var(--base);
+}
+.ant-dropdown-menu-item:hover,
+.ant-dropdown-menu-submenu-title:hover {
+  background: var(--regular-3);
+}
+@media screen and (max-width: 1024px) {
+  .section__title {
+    font-size: 24px;
+  }
+}
