@@ -32,7 +32,7 @@ export default {
   modules: ["@nuxtjs/axios", "@nuxtjs/i18n"],
 
   axios: {
-    baseURL: process.env.BASE_URL,
+    baseURL: "https://mikamidies.pythonanywhere.com/api",
   },
 
   build: {
