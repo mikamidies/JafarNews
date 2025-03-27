@@ -61,7 +61,7 @@
               <NuxtLink :to="switchLocalePath('en')">English</NuxtLink>
               <NuxtLink :to="switchLocalePath('ru')">Русский</NuxtLink>
               <NuxtLink :to="switchLocalePath('uz')">O'zbekcha</NuxtLink>
-              <NuxtLink :to="switchLocalePath('ar')">العربية</NuxtLink>
+              <!-- <NuxtLink :to="switchLocalePath('ar')">العربية</NuxtLink> -->
             </div>
           </div>
         </div>
@@ -78,9 +78,9 @@
                 <a-menu-item key="3">
                   <NuxtLink :to="switchLocalePath('uz')">O'zbekcha</NuxtLink>
                 </a-menu-item>
-                <a-menu-item key="4">
+                <!-- <a-menu-item key="4">
                   <NuxtLink :to="switchLocalePath('ar')">العربية</NuxtLink>
-                </a-menu-item>
+                </a-menu-item> -->
               </a-menu>
               <a-button style="margin-left: 8px">
                 <LangIcon />

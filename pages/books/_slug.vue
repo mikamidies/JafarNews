@@ -6,7 +6,7 @@
           <div class="back">
             <NuxtLink :to="localePath(`/books`)">
               <BackIcon />
-              {{ $store.state.translations["inner.all_books"] }}
+              {{ $store.state.translations["main.all_books"] }}
             </NuxtLink>
           </div>
           <h1 class="title">{{ book.title }}</h1>
@@ -15,7 +15,7 @@
           </div>
           <div class="html" v-html="book.text"></div>
           <a :href="book.file" target="_blank" download class="download">
-            {{ $store.state.translations["inner.download"] }}
+            {{ $store.state.translations["main.download"] }}
             <DownloadIcon />
           </a>
         </div>

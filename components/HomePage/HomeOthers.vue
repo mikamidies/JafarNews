@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <h4 class="section__title">
-      {{ $store.state.translations["inner.other_news"] }}
+      {{ $store.state.translations["main.other_news"] }}
     </h4>
     <div class="list">
       <OtherCard v-for="item in posts" :key="item.id" :item="item" />

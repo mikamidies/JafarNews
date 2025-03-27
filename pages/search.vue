@@ -161,7 +161,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="css">
 .inner {
   padding-top: 0;
   border-top: 0;

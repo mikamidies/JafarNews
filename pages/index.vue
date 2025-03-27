@@ -71,7 +71,7 @@ export default {
       },
     });
 
-    const postsPopular = posts?.filter((item) => item.last);
+    const postsPopular = posts?.filter((item) => item.top);
 
     return {
       posts,

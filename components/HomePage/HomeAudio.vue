@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <h4 class="section__title">
-      {{ $store.state.translations["inner.audio"] }}
+      {{ $store.state.translations["main.audio"] }}
     </h4>
     <div class="cardo">
       <p class="sup">

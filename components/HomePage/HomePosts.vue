@@ -4,7 +4,7 @@
       <h4 class="section__title">{{ title }}</h4>
 
       <NuxtLink :to="localePath(`/posts`)">
-        {{ $store.state.translations["inner.see_all"] }}
+        {{ $store.state.translations["main.see_all"] }}
         <UpArrow />
       </NuxtLink>
     </div>

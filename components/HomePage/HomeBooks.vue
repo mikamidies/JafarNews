@@ -2,11 +2,11 @@
   <div class="wrap">
     <div class="header">
       <h4 class="section__title">
-        {{ $store.state.translations["inner.books"] }}
+        {{ $store.state.translations["main.books"] }}
       </h4>
 
       <NuxtLink :to="localePath(`/books`)">
-        {{ $store.state.translations["inner.see_all"] }}
+        {{ $store.state.translations["main.see_all"] }}
         <UpArrow />
       </NuxtLink>
     </div>

@@ -4,7 +4,7 @@ export default {
       let res;
 
       if (axios) {
-        res = await axios.get("/video_lessons", {
+        res = await axios.get("/books", {
           ...params,
         });
 
@@ -21,7 +21,7 @@ export default {
       let res;
 
       if (axios) {
-        res = await axios.get(`/video_lessons/${slug}`, {
+        res = await axios.get(`/books/${slug}`, {
           ...params,
         });
       }

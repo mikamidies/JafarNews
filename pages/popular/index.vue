@@ -5,7 +5,7 @@
         <div class="left">
           <HomePosts
             class="inner"
-            :title="$store.state.translations[`inner.popular_news`]"
+            :title="$store.state.translations[`main.popular_news`]"
             :posts="posts"
           />
         </div>

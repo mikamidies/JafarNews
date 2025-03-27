@@ -6,7 +6,7 @@
           <div class="back">
             <NuxtLink :to="localePath(`/posts`)">
               <BackIcon />
-              {{ $store.state.translations["inner.all_news"] }}
+              {{ $store.state.translations["main.all_news"] }}
             </NuxtLink>
           </div>
           <h1 class="title">{{ post.title }}</h1>

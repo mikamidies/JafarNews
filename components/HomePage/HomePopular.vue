@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <h4 class="section__title">
-      {{ $store.state.translations["inner.popular_news"] }}
+      {{ $store.state.translations["main.popular"] }}
     </h4>
 
     <div class="swiper topSwiper" ref="popularSwiper">
@@ -14,9 +14,7 @@
             <div class="right">
               <div class="content">
                 <h2 class="title">{{ item.title }}</h2>
-                <p class="sub">
-                  {{ item.subtitle }}
-                </p>
+                <p class="sub" v-html="item.text"></p>
               </div>
 
               <div class="info">
@@ -26,7 +24,7 @@
                 </div>
                 <div class="date">
                   <DateIcon />
-                  <p>1{{ item.created_at }}</p>
+                  <p>{{ item.created_at }}</p>
                 </div>
               </div>
             </div>
@@ -74,15 +72,15 @@ export default {
         1024: {
           slidesPerView: 4,
           spaceBetween: 8,
-        }
-      }
+        },
+      },
     });
 
     new Swiper(this.$refs.popularSwiper, {
       slidesPerView: 1,
       spaceBetween: 8,
       autoplay: {
-        delay: 3000,
+        delay: 5000,
       },
       speed: 1000,
       thumbs: {
@@ -92,8 +90,8 @@ export default {
         1024: {
           slidesPerView: 1,
           spaceBetween: 16,
-        }
-      }
+        },
+      },
     });
   },
 };

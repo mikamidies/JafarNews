@@ -6,14 +6,18 @@
           <div class="back">
             <NuxtLink :to="localePath(`/videos`)">
               <BackIcon />
-              {{ $store.state.translations["inner.all_videos"] }}
+              {{ $store.state.translations["main.all_videos"] }}
             </NuxtLink>
           </div>
           <h1 class="title">{{ video.title }}</h1>
           <div class="img">
-            <iframe :src="video.video" title="YouTube video player" frameborder="0"
+            <iframe
+              :src="video.video"
+              title="YouTube video player"
+              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+              allowfullscreen
+            ></iframe>
           </div>
           <div class="html" v-html="video.text"></div>
         </div>
