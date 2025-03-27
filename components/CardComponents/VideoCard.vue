@@ -2,9 +2,13 @@
   <div class="wrapper">
     <NuxtLink :to="localePath(`/videos/${item.slug}`)">
       <div class="iframe">
-        <iframe :src="item.video" title="YouTube video player" frameborder="0"
+        <iframe
+          :src="getEmbedUrl(item.youtube_url)"
+          title="YouTube video player"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+          allowfullscreen
+        ></iframe>
       </div>
 
       <div class="bottom">
@@ -40,6 +44,16 @@ export default {
     ViewIcon,
     DateIcon,
   },
+
+  methods: {
+    getEmbedUrl(url) {
+      if (!url) return ""; // Проверяем, что URL не пустой
+      const videoId = url.includes("youtu.be/")
+        ? url.split("youtu.be/")[1].split("?")[0] // Для коротких ссылок
+        : url.split("watch?v=")[1]?.split("&")[0]; // Для длинных ссылок
+      return `https://www.youtube.com/embed/${videoId}`;
+    },
+  },
 };
 </script>
 
@@ -73,7 +87,9 @@ export default {
 
 .title {
   font-size: 24px;
+  line-height: 120%;
   letter-spacing: 2px;
+  margin: 8px 0;
 }
 
 .subtitle {

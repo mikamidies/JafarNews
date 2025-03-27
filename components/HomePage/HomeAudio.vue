@@ -64,8 +64,8 @@ export default {
 
   methods: {
     handleBeforePlay(next) {
-      this.currentAudioName =
-        this.audios[this.$refs.audioPlayer.currentPlayIndex].name;
+      this.currentAudio = this.$refs.audioPlayer.currentPlayIndex;
+      this.currentAudioName = this.audios[this.currentAudio].name;
       next();
     },
 
@@ -78,7 +78,9 @@ export default {
       }, 200);
     },
 
-    processEnd(e) {},
+    processEnd(e) {
+      this.currentAudio = this.$refs.audioPlayer.currentPlayIndex;
+    },
   },
 };
 </script>
@@ -100,6 +102,7 @@ export default {
 
 .list {
   padding: 12px 0;
+  height: 320px;
 }
 
 .item {
