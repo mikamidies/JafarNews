@@ -3,13 +3,18 @@
     <transition name="home">
       <WholeLoader v-if="loading" />
     </transition>
-    <!-- <img src="@/assets/img/trick.jpg" alt="" class="trick" /> -->
 
-    <DesktopHeader />
+    <DesktopHeader :info="info" />
     <main>
       <nuxt />
     </main>
-    <DesktopFooter />
+    <div class="banners">
+      <div class="container">
+        <TelegramBanner :info="info" />
+        <YoutubeBanner :info="info" />
+      </div>
+    </div>
+    <DesktopFooter :info="info" />
   </div>
 </template>
 
@@ -18,12 +23,41 @@ import DesktopHeader from "~/components/DesktopHeader.vue";
 import DesktopFooter from "@/components/DesktopFooter.vue";
 
 import translationsApi from "@/api/translations";
+import infoApi from "@/api/info";
+import YoutubeBanner from "~/components/CardComponents/YoutubeBanner.vue";
+import TelegramBanner from "~/components/CardComponents/TelegramBanner.vue";
 
 export default {
   data() {
     return {
       translations: [],
+      info: "",
       loading: true,
+    };
+  },
+
+  head() {
+    return {
+      title: this.info.title || "Заголовок по умолчанию",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.info.description || "",
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.info.subtitle || "",
+        },
+      ],
+      link: [
+        {
+          rel: "icon",
+          type: "image/png",
+          href: this.info.logo_first || "/favicon.png",
+        },
+      ],
     };
   },
 
@@ -42,6 +76,12 @@ export default {
     } finally {
       this.loading = false;
     }
+  },
+
+  async fetch() {
+    const info = await infoApi.getInfo(this.$axios);
+
+    this.info = info;
   },
 
   computed: {
@@ -71,6 +111,8 @@ export default {
   components: {
     DesktopHeader,
     DesktopFooter,
+    TelegramBanner,
+    YoutubeBanner,
   },
 };
 </script>
@@ -102,9 +144,20 @@ main {
   opacity: 0;
 }
 
+.banners .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
 @media screen and (max-width: 1024px) {
   main {
     padding-top: 116px;
+  }
+  .banners .container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 }
 </style>

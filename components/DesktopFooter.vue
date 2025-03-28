@@ -5,7 +5,7 @@
         <div class="left">
           <NuxtLink class="brand" :to="localePath(`/`)">
             <LangIcon />
-            <p>Ja'far News</p>
+            <p>{{ info.title }}</p>
           </NuxtLink>
         </div>
         <div class="right">
@@ -45,11 +45,7 @@
           {{ $store.state.translations["main.footer-txt"] }}
         </p>
         <div class="socials">
-          <a
-            href="https://www.instagram.com//"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a :href="info.instagram" target="_blank" rel="noopener noreferrer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -63,7 +59,7 @@
               ></path>
             </svg>
           </a>
-          <a href="https://t.me/" target="_blank" rel="noopener noreferrer">
+          <a :href="info.telegram" target="_blank" rel="noopener noreferrer">
             <svg
               id="Layer_1"
               style="enable-background: new 0 0 100 100"
@@ -78,11 +74,7 @@
               />
             </svg>
           </a>
-          <a
-            href="https://youtube.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a :href="info.youtube" target="_blank" rel="noopener noreferrer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -122,6 +114,12 @@ export default {
     return {
       currentDate: new Date(),
     };
+  },
+  props: {
+    info: {
+      type: Object,
+      default: () => ({}),
+    },
   },
 };
 </script>
@@ -276,6 +274,14 @@ export default {
 
   .mid {
     padding-bottom: 24px;
+  }
+
+  .mid .container {
+    grid-template-columns: 1fr;
+  }
+  .socials {
+    justify-content: flex-start;
+    margin-top: 32px;
   }
 }
 </style>

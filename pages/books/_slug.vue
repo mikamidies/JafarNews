@@ -51,8 +51,6 @@ export default {
       },
     });
 
-    console.log(book);
-
     return {
       book,
     };

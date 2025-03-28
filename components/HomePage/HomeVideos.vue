@@ -24,10 +24,6 @@ import UpArrow from "../SvgIcons/UpArrow.vue";
 export default {
   props: ["videos"],
 
-  mounted() {
-    console.log(this.videos);
-  },
-
   components: {
     VideoCard,
     UpArrow,

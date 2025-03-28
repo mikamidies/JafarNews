@@ -3,7 +3,7 @@
     <div class="top">
       <div class="container">
         <p class="quote">
-          {{ $store.state.translations["maqol.maqol"] }}
+          {{ $store.state.translations["main.quote"] }}
         </p>
       </div>
     </div>
@@ -12,7 +12,7 @@
         <div class="left">
           <NuxtLink class="brand" :to="localePath(`/`)">
             <LangIcon />
-            <p>Ja'far News</p>
+            <p>{{ info.title }}</p>
           </NuxtLink>
         </div>
         <div class="mid" :class="{ show: menuHandle }">
@@ -118,6 +118,13 @@ export default {
     SearchIcon,
     LangIcon,
     ChevronRight,
+  },
+
+  props: {
+    info: {
+      type: Object,
+      default: () => ({}),
+    },
   },
 
   data() {
@@ -292,7 +299,7 @@ export default {
   }
 
   .quote {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .langs,
