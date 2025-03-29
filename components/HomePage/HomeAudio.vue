@@ -160,6 +160,7 @@ export default {
 
 :deep(.audio__progress-wrap) {
   background: var(--light-4) !important;
+  pointer-events: none;
 }
 
 .title {

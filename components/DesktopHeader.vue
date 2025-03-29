@@ -58,9 +58,9 @@
 
           <div class="hidden">
             <div class="locales">
-              <NuxtLink :to="switchLocalePath('en')">English</NuxtLink>
-              <NuxtLink :to="switchLocalePath('ru')">Русский</NuxtLink>
-              <NuxtLink :to="switchLocalePath('uz')">O'zbekcha</NuxtLink>
+              <NuxtLink :to="switchLocalePath('En')">English</NuxtLink>
+              <NuxtLink :to="switchLocalePath('Ru')">Русский</NuxtLink>
+              <NuxtLink :to="switchLocalePath('Uz')">O'zbekcha</NuxtLink>
               <!-- <NuxtLink :to="switchLocalePath('ar')">العربية</NuxtLink> -->
             </div>
           </div>
@@ -70,13 +70,13 @@
             <a-dropdown>
               <a-menu slot="overlay">
                 <a-menu-item key="1">
-                  <NuxtLink :to="switchLocalePath('en')">English</NuxtLink>
+                  <NuxtLink :to="switchLocalePath('En')">English</NuxtLink>
                 </a-menu-item>
                 <a-menu-item key="2">
-                  <NuxtLink :to="switchLocalePath('ru')">Русский</NuxtLink>
+                  <NuxtLink :to="switchLocalePath('Ru')">Русский</NuxtLink>
                 </a-menu-item>
                 <a-menu-item key="3">
-                  <NuxtLink :to="switchLocalePath('uz')">O'zbekcha</NuxtLink>
+                  <NuxtLink :to="switchLocalePath('Uz')">O'zbekcha</NuxtLink>
                 </a-menu-item>
                 <!-- <a-menu-item key="4">
                   <NuxtLink :to="switchLocalePath('ar')">العربية</NuxtLink>

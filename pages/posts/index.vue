@@ -65,6 +65,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 340px;
   gap: 32px;
+  min-height: 60vh;
 }
 
 .left {

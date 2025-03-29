@@ -74,8 +74,19 @@ export default {
       await this.$store.commit("getTranslations", translations.data);
     } catch (error) {
     } finally {
-      this.loading = false;
+      this.loading = false; 
     }
+
+    this.$router.beforeEach((to, from, next) => {
+      this.loading = true; 
+      next(); 
+    });
+
+    this.$router.afterEach(() => {
+      setTimeout(() => {
+        this.loading = false;
+      }, 500); 
+    });
   },
 
   async fetch() {
@@ -99,12 +110,6 @@ export default {
       });
 
       await this.$store.commit("getTranslations", translations.data);
-    },
-    $route() {
-      this.loading = true;
-      setTimeout(() => {
-        this.loading = false;
-      }, 1000);
     },
   },
 
@@ -134,20 +139,27 @@ main {
   object-fit: contain;
 }
 
-.home-enter-active,
-.home-leave-active {
-  transition: opacity 0.5s;
+.home-enter-active {
+  transition: none; /* Убираем плавный переход при входе */
 }
 
-.home-enter,
 .home-leave-active {
-  opacity: 0;
+  transition: opacity 0.5s; /* Плавный переход при исчезновении */
+}
+
+.home-enter {
+  opacity: 1; /* Лоадер появляется мгновенно */
+}
+
+.home-leave-active {
+  opacity: 0; /* Лоадер исчезает плавно */
 }
 
 .banners .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  margin-top: 80px;
 }
 
 @media screen and (max-width: 1024px) {

@@ -5,7 +5,7 @@
         <div class="left">
           <HomePosts
             class="inner"
-            :title="$store.state.translations[`main.popular_news`]"
+            :title="$store.state.translations[`main.popular`]"
             :posts="posts"
           />
         </div>
@@ -39,7 +39,7 @@ export default {
       },
     });
 
-    const posts = postsData?.filter((item) => item.last);
+    const posts = postsData?.filter((item) => item.top);
 
     return {
       posts,

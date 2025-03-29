@@ -50,10 +50,10 @@ export default {
   },
 
   i18n: {
-    locales: ["en", "ru", "ar", "uz"],
-    defaultLocale: "en",
+    locales: ["En", "Ru", "Ar", "Uz"],
+    defaultLocale: "En",
     vueI18n: {
-      fallbackLocale: "en",
+      fallbackLocale: "En",
     },
   },
 };

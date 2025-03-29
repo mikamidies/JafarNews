@@ -12,7 +12,7 @@
           <h1 class="title">{{ video.title }}</h1>
           <div class="img">
             <iframe
-              :src="video.video"
+              :src="getEmbedUrl(video.youtube_url)"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -54,6 +54,16 @@ export default {
     return {
       video,
     };
+  },
+
+  methods: {
+    getEmbedUrl(url) {
+      if (!url) return ""; // Проверяем, что URL не пустой
+      const videoId = url.includes("youtu.be/")
+        ? url.split("youtu.be/")[1].split("?")[0] // Для коротких ссылок
+        : url.split("watch?v=")[1]?.split("&")[0]; // Для длинных ссылок
+      return `https://www.youtube.com/embed/${videoId}`;
+    },
   },
 };
 </script>

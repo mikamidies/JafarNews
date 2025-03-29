@@ -14,7 +14,7 @@
             <img :src="book.image" alt="" />
           </div>
           <div class="html" v-html="book.text"></div>
-          <a :href="book.file" target="_blank" download class="download">
+          <a :href="book.book" target="_blank" download class="download">
             {{ $store.state.translations["main.download"] }}
             <DownloadIcon />
           </a>

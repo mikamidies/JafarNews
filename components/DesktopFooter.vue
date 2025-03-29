@@ -126,7 +126,7 @@ export default {
 
 <style scoped>
 .wrap {
-  margin-top: 120px;
+  margin-top: 40px;
   background: var(--dark-3);
 }
 

@@ -40,7 +40,7 @@ img {
   width: 132px;
   height: 132px;
   object-fit: contain;
-  transform: scale(1.5) translateX(-32px);
+  transform: translateX(-32px);
 }
 .right {
   display: flex;
@@ -60,7 +60,7 @@ img {
 .youtube-banner__title {
   font-family: var(--base);
   font-weight: 600;
-  font-size: 24px;
+  font-size: 32px;
   margin-bottom: 4px;
 }
 .youtube-banner__description {

@@ -134,10 +134,16 @@ export default {
   font-style: normal;
   font-weight: 300;
   line-height: 150%;
-  display: flex;
   margin-bottom: 12px;
   font-family: var(--base);
   opacity: 0.7;
+  display: -webkit-box; /* Используем flex-контейнер для ограничения строк */
+  -webkit-line-clamp: 6; /* Ограничиваем текст до 6 строк */
+  -webkit-box-orient: vertical; /* Устанавливаем вертикальную ориентацию */
+  overflow: hidden; /* Скрываем текст, выходящий за пределы */
+  text-overflow: ellipsis; /* Добавляем многоточие для обрезанного текста */
+  font-size: 16px; /* Пример размера шрифта */
+  line-height: 1.5;
 }
 
 .right {
