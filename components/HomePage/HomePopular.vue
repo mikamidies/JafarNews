@@ -13,8 +13,14 @@
             </div>
             <div class="right">
               <div class="content">
-                <h2 class="title">{{ item.title }}</h2>
-                <p class="sub" v-html="item.text"></p>
+                <div>
+                  <h2 class="title">{{ item.title }}</h2>
+                  <p class="sub" v-html="item.text"></p>
+                </div>
+
+                <div class="tags">
+                  {{ item.tags }}
+                </div>
               </div>
 
               <div class="info">
@@ -109,6 +115,19 @@ export default {
   grid-template-columns: 6fr 4fr;
   gap: 32px;
   border-radius: 8px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin-bottom: 12px;
+}
+
+.tags{
+  font-size: 18px;
+  color: white;
 }
 
 .img img {

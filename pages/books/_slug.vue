@@ -13,6 +13,9 @@
           <div class="img">
             <img :src="book.image" alt="" />
           </div>
+          <div class="tags">
+            {{ book.tags }}
+          </div>
           <div class="html" v-html="book.text"></div>
           <a :href="book.book" target="_blank" download class="download">
             {{ $store.state.translations["main.download"] }}
@@ -146,6 +149,13 @@ export default {
   gap: 8px;
   font-family: var(--base);
   color: white;
+}
+
+.tags{
+  font-size: 18px;
+  color: var(--sky);
+  font-family: var(--base);
+  margin-bottom: 24px;
 }
 
 @media screen and (max-width: 1024px) {

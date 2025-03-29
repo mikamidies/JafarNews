@@ -14,7 +14,7 @@
         <div class="right">
           <div class="stick">
             <HomeAudio :audios="audios" />
-            <HomeOthers :posts="posts" />
+            <HomeOthers :posts="shuffledPosts" />
           </div>
         </div>
       </div>
@@ -46,6 +46,8 @@ export default {
   },
 
   async asyncData({ $axios, query, i18n }) {
+    const limit = 12;
+
     const posts = await postsApi.getNews($axios, {
       ...query,
       headers: {
@@ -70,14 +72,21 @@ export default {
         language: i18n.locale,
       },
     });
+    const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+    const shuffledPosts = shuffleArray([...posts]); // Создаём копию массива и перемешиваем
 
-    const postsPopular = posts?.filter((item) => item.top);
+    const postsLimited = posts.slice(0, limit);
+    const videosLimited = videos.slice(0, limit);
+    const booksLimited = books.slice(0, limit);
+
+    const postsPopular = posts.filter((item) => item.top);
 
     return {
-      posts,
-      videos,
+      posts: postsLimited,
+      shuffledPosts,
+      videos: videosLimited,
       audios,
-      books,
+      books: booksLimited,
       postsPopular,
     };
   },

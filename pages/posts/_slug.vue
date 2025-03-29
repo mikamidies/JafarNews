@@ -13,6 +13,9 @@
           <div class="img">
             <img :src="post.image" alt="" />
           </div>
+          <div class="tags">
+            {{ post.tags }}
+          </div>
           <div class="html" v-html="post.text"></div>
         </div>
         <div class="right">
@@ -124,6 +127,13 @@ export default {
   width: 100%;
   height: auto;
   border-radius: 12px;
+}
+
+.tags{
+  font-size: 18px;
+  color: var(--sky);
+  font-family: var(--base);
+  margin-bottom: 24px;
 }
 
 @media screen and (max-width: 1024px) {

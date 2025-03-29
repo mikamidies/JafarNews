@@ -2,7 +2,7 @@
   <div class="wrapper">
     <NuxtLink :to="localePath(`/posts/${item.slug}`)">
       <div class="img">
-        <img :src="item.image" alt="" />
+        <img :src="item.image ? item.image : '/default-image.jpg'" alt="" />
       </div>
       <div class="bottom">
         <div class="info">

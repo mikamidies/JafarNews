@@ -19,6 +19,9 @@
               allowfullscreen
             ></iframe>
           </div>
+          <div class="tags">
+            {{ video.tags }}
+          </div>
           <div class="html" v-html="video.text"></div>
         </div>
         <div class="right">
@@ -148,6 +151,13 @@ export default {
   width: 100%;
   height: auto;
   border-radius: 12px;
+}
+
+.tags{
+  font-size: 18px;
+  color: var(--sky);
+  font-family: var(--base);
+  margin-bottom: 24px;
 }
 
 @media screen and (max-width: 1024px) {

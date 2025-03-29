@@ -7,7 +7,7 @@
         </div>
         <div class="right">
           <div class="stick">
-            <HomeOthers class="inner" :posts="posts" />
+            <HomeOthers class="inner" :posts="shuffledPosts" />
           </div>
         </div>
       </div>
@@ -42,9 +42,13 @@ export default {
       },
     });
 
+    const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+    const shuffledPosts = shuffleArray([...posts]); // Создаём копию массива и перемешиваем
+
     return {
       posts,
       books,
+      shuffledPosts
     };
   },
 };
