@@ -24,7 +24,7 @@
         </div>
         <div class="right">
           <div class="stick">
-            <HomeOthers class="inner" :posts="book.other_news" />
+            <HomeOthers class="inner" :posts="book.others" />
           </div>
         </div>
       </div>

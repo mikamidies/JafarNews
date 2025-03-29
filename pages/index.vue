@@ -48,48 +48,65 @@ export default {
   async asyncData({ $axios, query, i18n }) {
     const limit = 12;
 
-    const posts = await postsApi.getNews($axios, {
-      ...query,
-      headers: {
-        language: i18n.locale,
-      },
-    });
-    const videos = await videosApi.getVideos($axios, {
-      ...query,
-      headers: {
-        language: i18n.locale,
-      },
-    });
-    const audios = await audiosApi.getAudios($axios, {
-      ...query,
-      headers: {
-        language: i18n.locale,
-      },
-    });
-    const books = await booksApi.getBooks($axios, {
-      ...query,
-      headers: {
-        language: i18n.locale,
-      },
-    });
-    const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
-    const shuffledPosts = shuffleArray([...posts]); // Создаём копию массива и перемешиваем
+    try {
+      const posts = await postsApi.getNews($axios, {
+        ...query,
+        headers: {
+          language: i18n.locale,
+        },
+      });
 
-    const postsLimited = posts.slice(0, limit);
-    const videosLimited = videos.slice(0, limit);
-    const booksLimited = books.slice(0, limit);
+      const videos = await videosApi.getVideos($axios, {
+        ...query,
+        headers: {
+          language: i18n.locale,
+        },
+      });
 
-    const postsPopular = posts.filter((item) => item.top);
+      const audios = await audiosApi.getAudios($axios, {
+        ...query,
+        headers: {
+          language: i18n.locale,
+        },
+      });
 
-    return {
-      posts: postsLimited,
-      shuffledPosts,
-      videos: videosLimited,
-      audios,
-      books: booksLimited,
-      postsPopular,
-    };
-  },
+      const books = await booksApi.getBooks($axios, {
+        ...query,
+        headers: {
+          language: i18n.locale,
+        },
+      });
+
+      // Перемешиваем массив posts
+      const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+      const shuffledPosts = shuffleArray([...posts || []]); // Создаём копию массива и перемешиваем
+
+      const postsLimited = (posts || []).slice(0, limit);
+      const videosLimited = (videos || []).slice(0, limit);
+      const booksLimited = (books || []).slice(0, limit);
+
+      const postsPopular = (posts || []).filter((item) => item.top);
+
+      return {
+        posts: postsLimited,
+        shuffledPosts,
+        videos: videosLimited,
+        audios,
+        books: booksLimited,
+        postsPopular,
+      };
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return {
+        posts: [],
+        shuffledPosts: [],
+        videos: [],
+        audios: [],
+        books: [],
+        postsPopular: [],
+      };
+    }
+  }
 };
 </script>
 

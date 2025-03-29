@@ -26,7 +26,7 @@
         </div>
         <div class="right">
           <div class="stick">
-            <HomeOthers class="inner" :posts="video.other_news" />
+            <HomeOthers class="inner" :posts="video.others" />
           </div>
         </div>
       </div>
